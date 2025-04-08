@@ -16,7 +16,7 @@ const TaskContainer = () => {
           </div>
         ))}
       </div>
-      <div className="overflow-auto h-full scrollbar lg:hidden text-center grid grid-cols-2 gap-10 ">
+      <div className="overflow-auto h-full scrollbar lg:hidden text-center grid sm:grid-cols-2 gap-10 ">
         <div>
           <h4 className="bg-gray-200 p-4 rounded-md">Planned</h4>
           <TaskNotStartedColumn />

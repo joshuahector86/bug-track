@@ -5,7 +5,7 @@ interface SearchBarProps {
 }
 const SearchBar = ({ placeholder }: SearchBarProps) => {
   return (
-    <div className="flex gap-2 items-center">
+    <div className="flex gap-2 items-center mt-2 md:mt-0 ">
       <input
         type="text"
         className="border border-gray-200 shadow-md rounded-md p-2 w-full max-w-[25rem] focus:outline-none "
