@@ -1,9 +1,11 @@
 import mockTasks from "../../data/mock-data";
 import TaskCard from "./task-card";
 
+const scrollStyle = "h-full overflow-auto scrollbar hover:bg-gray-100";
+
 const TaskNotStartedColumn = () => {
   return (
-    <div>
+    <div className={scrollStyle}>
       {mockTasks.map((task) => (
         <div key={task.title}>
           {task.status === "not-started" ? (
@@ -26,7 +28,7 @@ const TaskNotStartedColumn = () => {
 
 const TaskInProgressColumn = () => {
   return (
-    <div>
+    <div className={scrollStyle}>
       {mockTasks.map((task) => (
         <div key={task.title}>
           {task.status === "in-progress" ? (
@@ -49,7 +51,7 @@ const TaskInProgressColumn = () => {
 
 const TaskBlockedColumn = () => {
   return (
-    <div>
+    <div className={scrollStyle}>
       {mockTasks.map((task) => (
         <div key={task.title}>
           {task.status === "blocked" ? (
@@ -72,7 +74,7 @@ const TaskBlockedColumn = () => {
 
 const TaskInReviewColumn = () => {
   return (
-    <div>
+    <div className={scrollStyle}>
       {mockTasks.map((task) => (
         <div key={task.title}>
           {task.status === "review" ? (
@@ -95,7 +97,7 @@ const TaskInReviewColumn = () => {
 
 const TaskCompletedColumn = () => {
   return (
-    <div>
+    <div className={scrollStyle}>
       {mockTasks.map((task) => (
         <div key={task.title}>
           {task.status === "completed" ? (

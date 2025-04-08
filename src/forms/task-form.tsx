@@ -1,16 +1,6 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
-
-// Import the interface if it's defined elsewhere
-interface TaskCardProps {
-  title: string;
-  description: string;
-  status: string;
-  author: string;
-  createdAt: string;
-  createdDate: string;
-  updatedAt?: string;
-  updatedDate?: string;
-}
+import { TaskCardType } from "../types";
+import Button from "../components/general/button";
 
 interface ValidationErrors {
   title?: string;
@@ -22,27 +12,28 @@ interface ValidationErrors {
 }
 
 interface TaskFormProps {
-  initialValues?: TaskCardProps;
-  onSubmit: (task: TaskCardProps) => void;
+  initialValues?: TaskCardType;
+  onSubmit: (task: TaskCardType) => void;
 }
 
 const TaskForm: React.FC<TaskFormProps> = ({ initialValues, onSubmit }) => {
-  const defaultValues: TaskCardProps = {
+  const defaultValues: TaskCardType = {
     title: "",
     description: "",
-    status: "Not Started",
+    status: "Backlog",
     author: "",
     createdAt: "",
     createdDate: "",
   };
 
-  const [task, setTask] = useState<TaskCardProps>(
+  const [task, setTask] = useState<TaskCardType>(
     initialValues || defaultValues
   );
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [submitted, setSubmitted] = useState(false);
 
   const statusOptions = [
+    "Backlog",
     "Not Started",
     "In Progress",
     "Pending",
@@ -159,11 +150,20 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialValues, onSubmit }) => {
     }));
   };
 
+  // Styles
+  const inputStyles =
+    "p-2  shadow-xl border border-gray-300 focus:outline-gray-300";
+  const textAreaStyles =
+    "p-2  w-full shadow-xl border-gray-300 border focus:outline-gray-300 resize-none min-h-[30vh]";
+  const formGroupStyles = "flex flex-col gap-2 mb-20";
+  const errorStyles =
+    "text-red-500 border-red-500 focus:border-red-500 focus:ring-red-500";
+
   return (
-    <div className="task-form-container">
-      <h2>{initialValues ? "Edit Task" : "Create New Task"}</h2>
+    <div className="border h-full border-gray-200 rounded shadow-md p-4 overflow-auto scrollbar">
+      <h3>{initialValues ? "Edit Task" : "Create New Task"}</h3>
       <form onSubmit={handleSubmit} noValidate>
-        <div className="form-group">
+        <div className={formGroupStyles}>
           <label htmlFor="title">Title*</label>
           <input
             type="text"
@@ -171,14 +171,16 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialValues, onSubmit }) => {
             name="title"
             value={task.title}
             onChange={handleChange}
-            className={errors.title && submitted ? "error" : ""}
+            className={` ${inputStyles} ${
+              errors.title && submitted ? errorStyles : ""
+            }`}
           />
           {errors.title && submitted && (
-            <div className="error-message">{errors.title}</div>
+            <div className={errorStyles}>{errors.title}</div>
           )}
         </div>
 
-        <div className="form-group">
+        <div className={formGroupStyles}>
           <label htmlFor="description">Description*</label>
           <textarea
             id="description"
@@ -186,21 +188,25 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialValues, onSubmit }) => {
             value={task.description}
             onChange={handleChange}
             rows={4}
-            className={errors.description && submitted ? "error" : ""}
+            className={` ${textAreaStyles} ${
+              errors.description && submitted ? errorStyles : ""
+            }`}
           />
           {errors.description && submitted && (
-            <div className="error-message">{errors.description}</div>
+            <div className={errorStyles}>{errors.description}</div>
           )}
         </div>
 
-        <div className="form-group">
+        <div className={formGroupStyles}>
           <label htmlFor="status">Status*</label>
           <select
             id="status"
             name="status"
             value={task.status}
             onChange={handleChange}
-            className={errors.status && submitted ? "error" : ""}
+            className={`max-w-[20rem] ${inputStyles} ${
+              errors.status && submitted ? errorStyles : ""
+            }`}
           >
             {statusOptions.map((option) => (
               <option key={option} value={option}>
@@ -209,11 +215,11 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialValues, onSubmit }) => {
             ))}
           </select>
           {errors.status && submitted && (
-            <div className="error-message">{errors.status}</div>
+            <div className={errorStyles}>{errors.status}</div>
           )}
         </div>
 
-        <div className="form-group">
+        <div className={formGroupStyles}>
           <label htmlFor="author">Author*</label>
           <input
             type="text"
@@ -221,15 +227,17 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialValues, onSubmit }) => {
             name="author"
             value={task.author}
             onChange={handleChange}
-            className={errors.author && submitted ? "error" : ""}
+            className={`max-w-[20rem] ${inputStyles} ${
+              errors.author && submitted ? errorStyles : ""
+            }`}
           />
           {errors.author && submitted && (
-            <div className="error-message">{errors.author}</div>
+            <div className={errorStyles}>{errors.author}</div>
           )}
         </div>
 
         <div className="form-row">
-          <div className="form-group">
+          <div className={formGroupStyles}>
             <label htmlFor="createdAt">Created Time*</label>
             <input
               type="text"
@@ -238,14 +246,16 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialValues, onSubmit }) => {
               placeholder="HH:MM"
               value={task.createdAt}
               onChange={handleChange}
-              className={errors.createdAt && submitted ? "error" : ""}
+              className={`max-w-[20rem] ${inputStyles} ${
+                errors.createdAt && submitted ? errorStyles : ""
+              }`}
             />
             {errors.createdAt && submitted && (
-              <div className="error-message">{errors.createdAt}</div>
+              <div className={errorStyles}>{errors.createdAt}</div>
             )}
           </div>
 
-          <div className="form-group">
+          <div className={formGroupStyles}>
             <label htmlFor="createdDate">Created Date*</label>
             <input
               type="text"
@@ -254,22 +264,20 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialValues, onSubmit }) => {
               placeholder="YYYY-MM-DD"
               value={task.createdDate}
               onChange={handleChange}
-              className={errors.createdDate && submitted ? "error" : ""}
+              className={`max-w-[20rem] ${inputStyles} ${
+                errors.createdDate && submitted ? errorStyles : ""
+              }`}
             />
             {errors.createdDate && submitted && (
-              <div className="error-message">{errors.createdDate}</div>
+              <div className={errorStyles}>{errors.createdDate}</div>
             )}
           </div>
         </div>
 
         {!initialValues && (
-          <button
-            type="button"
-            onClick={setCurrentDateTime}
-            className="secondary-button"
-          >
+          <Button type="button" onClick={setCurrentDateTime} className="mb-5">
             Use Current Date & Time
-          </button>
+          </Button>
         )}
 
         {initialValues && (
@@ -295,9 +303,9 @@ const TaskForm: React.FC<TaskFormProps> = ({ initialValues, onSubmit }) => {
         )}
 
         <div className="form-actions">
-          <button type="submit" className="primary-button">
+          <Button type="submit">
             {initialValues ? "Update Task" : "Create Task"}
-          </button>
+          </Button>
         </div>
       </form>
     </div>

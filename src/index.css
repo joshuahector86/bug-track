@@ -17,3 +17,14 @@ h3 {
   font-weight: 600;
   font-size: 1.5rem;
 }
+
+h5 {
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    @apply w-0; /* Hide scrollbar by default */
+  }
+}
