@@ -1,7 +1,7 @@
 import mockTasks from "../../data/mock-data";
 import TaskCard from "./task-card";
 
-const scrollStyle = "h-full overflow-auto scrollbar hover:bg-gray-100";
+const scrollStyle = "h-full overflow-auto scrollbar lg:hover:bg-gray-100";
 
 const TaskNotStartedColumn = () => {
   return (

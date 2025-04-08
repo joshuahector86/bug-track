@@ -1,4 +1,4 @@
-import { TaskCardType } from "../types";
+import { AccountType, TaskCardType } from "../types";
 
 export const mockTasks: TaskCardType[] = [
   {
@@ -121,4 +121,45 @@ export const mockTasks: TaskCardType[] = [
   },
 ];
 
+export const mockAccount: AccountType = {
+  name: "Dimitri Hector",
+  email: "email@aol.com",
+  role: "Administrator",
+  accountCreationDate: "2025-03-01",
+  lastLoginDate: "2025-03-20",
+  notifications: [
+    {
+      id: 1,
+      title: "New Feature Release",
+      description: "Check out the new features in the latest update.",
+      status: "unread",
+    },
+    {
+      id: 2,
+      title: "Server Maintenance Scheduled",
+      description:
+        "Scheduled maintenance on March 25th from 2 AM to 4 AM. Expect downtime.",
+      status: "read",
+    },
+    {
+      id: 3,
+      title: "User Feedback Received",
+      description:
+        "You have received new feedback from users regarding the recent update.",
+      status: "unread",
+    },
+    {
+      id: 4,
+      title: "Password Change Notification",
+      description: "Your password was changed successfully.",
+      status: "read",
+    },
+    {
+      id: 5,
+      title: "New Comment on Task",
+      description: "A new comment has been added to your task.",
+      status: "unread",
+    },
+  ],
+};
 export default mockTasks;

@@ -11,8 +11,8 @@ const TaskCard = ({
   updatedDate,
 }: TaskCardType) => {
   return (
-    <div className="p-4  border-b border-gray-400 shadow-sm m-4 bg-white hover:transform hover:scale-105 transition-transform duration-200 ease-in-out rounded-lg">
-      <h2 className="text-lg font-bold">{title}</h2>
+    <div className="p-4 min-w-[10rem] max-h-[10rem] overflow-hidden  border-b border-gray-400 shadow-sm m-2 bg-white hover:transform hover:scale-105 transition-transform duration-200 ease-in-out rounded-lg">
+      <h4 className="text-lg font-bold">{title}</h4>
       <p className="text-sm text-gray-500">{description}</p>
       <p className="text-sm text-gray-500">Status: {status}</p>
       <p className="text-sm text-gray-500">Author: {author}</p>
