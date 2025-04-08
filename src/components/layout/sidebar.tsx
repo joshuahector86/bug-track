@@ -19,7 +19,7 @@ const Sidebar = () => {
             className="flex items center gap-2 text-white p-4 hover:bg-gray-700 cursor-pointer"
           >
             <div>{item.icon}</div>
-            <h4>{item.name}</h4>
+            <h4 className="hidden lg:block">{item.name}</h4>
           </Link>
         ))}
       </div>
