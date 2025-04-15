@@ -18,6 +18,7 @@ interface TaskFormProps {
 
 const TaskForm: React.FC<TaskFormProps> = ({ initialValues, onSubmit }) => {
   const defaultValues: TaskCardType = {
+    id: "",
     title: "",
     description: "",
     status: "Backlog",

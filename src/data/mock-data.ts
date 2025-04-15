@@ -2,6 +2,7 @@ import { AccountType, TaskCardType } from "../types";
 
 export const mockTasks: TaskCardType[] = [
   {
+    id: "1",
     title: "Complete Project Proposal",
     description:
       "Draft a comprehensive project proposal including timeline, budget, and resource allocation.",
@@ -13,6 +14,7 @@ export const mockTasks: TaskCardType[] = [
     updatedDate: "2025-03-15",
   },
   {
+    id: "2",
     title: "Client Meeting Preparation",
     description:
       "Prepare presentation slides and talking points for the quarterly client review meeting.",
@@ -24,6 +26,7 @@ export const mockTasks: TaskCardType[] = [
     updatedDate: "2025-03-14",
   },
   {
+    id: "3",
     title: "Bug Fix: Login Authentication",
     description:
       "Resolve the authentication issue affecting users on mobile devices during login.",
@@ -33,6 +36,7 @@ export const mockTasks: TaskCardType[] = [
     createdDate: "2025-03-18",
   },
   {
+    id: "4",
     title: "UI Design Review",
     description:
       "Review the latest UI mockups and provide feedback to the design team.",
@@ -42,6 +46,7 @@ export const mockTasks: TaskCardType[] = [
     createdDate: "2025-03-20",
   },
   {
+    id: "5",
     title: "Database Optimization",
     description:
       "Improve query performance and optimize database structure for better efficiency.",
@@ -53,6 +58,7 @@ export const mockTasks: TaskCardType[] = [
     updatedDate: "2025-03-19",
   },
   {
+    id: "6",
     title: "Documentation Update",
     description:
       "Update API documentation with latest endpoint changes and usage examples.",
@@ -64,6 +70,7 @@ export const mockTasks: TaskCardType[] = [
     updatedDate: "2025-03-09",
   },
   {
+    id: "7",
     title: "Weekly Team Sync",
     description:
       "Prepare agenda and coordinate weekly team synchronization meeting.",
@@ -73,6 +80,7 @@ export const mockTasks: TaskCardType[] = [
     createdDate: "2025-03-17",
   },
   {
+    id: "8",
     title: "Feature Implementation: User Dashboard",
     description:
       "Implement new analytics components on the user dashboard as per requirements.",
@@ -84,6 +92,7 @@ export const mockTasks: TaskCardType[] = [
     updatedDate: "2025-03-18",
   },
   {
+    id: "9",
     title: "Security Audit Review",
     description:
       "Review findings from the recent security audit and prioritize remediation steps.",
@@ -93,6 +102,7 @@ export const mockTasks: TaskCardType[] = [
     createdDate: "2025-03-19",
   },
   {
+    id: "10",
     title: "Q2 Strategy Planning",
     description:
       "Outline strategic initiatives and goals for the upcoming quarter.",
@@ -102,6 +112,7 @@ export const mockTasks: TaskCardType[] = [
     createdDate: "2025-03-21",
   },
   {
+    id: "11",
     title: "Security Block Review",
     description:
       "Review findings from the recent security audit and prioritize remediation steps.",
@@ -111,6 +122,7 @@ export const mockTasks: TaskCardType[] = [
     createdDate: "2025-03-19",
   },
   {
+    id: "12",
     title: "Annual Budget Review",
     description:
       "Outline strategic initiatives and goals for the upcoming quarter.",
