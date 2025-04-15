@@ -7,9 +7,10 @@ const TaskNotStartedColumn = () => {
   return (
     <div className={scrollStyle}>
       {mockTasks.map((task) => (
-        <div key={task.title}>
+        <div key={task.id}>
           {task.status === "not-started" ? (
             <TaskCard
+              id={task.id}
               title={task.title}
               description={task.description}
               status={task.status}
@@ -30,9 +31,10 @@ const TaskInProgressColumn = () => {
   return (
     <div className={scrollStyle}>
       {mockTasks.map((task) => (
-        <div key={task.title}>
+        <div key={task.id}>
           {task.status === "in-progress" ? (
             <TaskCard
+              id={task.id}
               title={task.title}
               description={task.description}
               status={task.status}
@@ -53,9 +55,10 @@ const TaskBlockedColumn = () => {
   return (
     <div className={scrollStyle}>
       {mockTasks.map((task) => (
-        <div key={task.title}>
+        <div key={task.id}>
           {task.status === "blocked" ? (
             <TaskCard
+              id={task.id}
               title={task.title}
               description={task.description}
               status={task.status}
@@ -76,9 +79,10 @@ const TaskInReviewColumn = () => {
   return (
     <div className={scrollStyle}>
       {mockTasks.map((task) => (
-        <div key={task.title}>
+        <div key={task.id}>
           {task.status === "review" ? (
             <TaskCard
+              id={task.id}
               title={task.title}
               description={task.description}
               status={task.status}
@@ -99,9 +103,10 @@ const TaskCompletedColumn = () => {
   return (
     <div className={scrollStyle}>
       {mockTasks.map((task) => (
-        <div key={task.title}>
+        <div key={task.id}>
           {task.status === "completed" ? (
             <TaskCard
+              id={task.id}
               title={task.title}
               description={task.description}
               status={task.status}

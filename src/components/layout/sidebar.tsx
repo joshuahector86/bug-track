@@ -12,17 +12,15 @@ const Sidebar = () => {
 
   return (
     <div className="bg-gray-800 h-full">
-      <div>
-        {sidebarItems.map((item) => (
-          <Link
-            to={item.href}
-            className="flex items center gap-2 text-white p-4 hover:bg-gray-700 cursor-pointer"
-          >
-            <div>{item.icon}</div>
-            <h4 className="hidden lg:block">{item.name}</h4>
-          </Link>
-        ))}
-      </div>
+      {sidebarItems.map((item) => (
+        <Link
+          to={item.href}
+          className="flex items center gap-2 text-white p-4 hover:bg-gray-700 cursor-pointer"
+        >
+          <div>{item.icon}</div>
+          <h4 className="hidden lg:block">{item.name}</h4>
+        </Link>
+      ))}
     </div>
   );
 };
